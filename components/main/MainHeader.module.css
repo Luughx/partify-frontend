@@ -1,0 +1,15 @@
+.mainBox {
+    border-style: solid;
+    border-color: #F39A9E;
+    padding: 20px 20px 50px 20px;
+    border-radius: 30px;;
+}
+
+.textHeader {
+    font-weight: 200;
+    font-size: 30px;
+}
+
+.mainHeader {
+    color: white;
+}

@@ -1,0 +1,18 @@
+.divCard {
+    margin: 0px 5px 0px 5px;
+    border-radius: 15px 15px 15px 15px;
+    color: #777777;
+}
+
+.imageContainer {
+    width: 158.5px;
+}
+
+.imageCard {
+    width: 40%;
+    height: auto;
+}
+
+.cardName {
+    font-size: 17px;
+}
