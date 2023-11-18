@@ -1,0 +1,19 @@
+.header_container {
+    background: #87AFE7;
+}
+
+.link {
+    color: white;
+}
+
+.link:hover {
+    color: #C1FF69;
+}
+
+.link::after {
+    color: #C1FF69;
+}
+
+.link:active {
+    color: #C1FF69;
+}

@@ -1,6 +1,8 @@
 .main_footer {
     background: #B992DC;
-    color: white;   
+    color: white;
+    bottom: 0;
+    width: 100%;
   }
 
 .footerImage {

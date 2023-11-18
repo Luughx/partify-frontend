@@ -2,3 +2,19 @@
   padding: 0;
   margin: 0;
 }
+
+.bg_main_partify {
+  background: #87AFE7;
+}
+
+.color_main_partify {
+  color: #87AFE7;
+}
+
+.bg_secondary_partify {
+  background: #B992DC;
+}
+
+.color_secondary_partify {
+  color: #B992DC;
+}
