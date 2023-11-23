@@ -3,7 +3,7 @@
 }
 
 .link {
-    color: white;
+    color: white!important;
 }
 
 .link:hover {

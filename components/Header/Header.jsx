@@ -1,6 +1,8 @@
 import Link from "next/link"
 import styles from "./Header.module.css"
 import Image from "next/image"
+import SignUp from "./SignUp"
+import LogIn from "./LogIn"
 
 export default function Header() {
     return (
@@ -10,14 +12,14 @@ export default function Header() {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <a className="navbar-brand" href="#">
+                    <Link className="navbar-brand" href="/">
                         <Image
                         src={"/PY-Web-Logo.png"}
                         width={177}
                         height={74}
                         alt="Partify"
                         />
-                    </a>
+                    </Link>
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li className="nav-item">
                             <Link className={`nav-link ${styles.link}`} href="/" >Inicio</Link>
@@ -36,12 +38,8 @@ export default function Header() {
                         </li>
                     </ul>
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <Link className={`nav-link ${styles.link}`} href="#">Iniciar sesión</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className={`nav-link ${styles.link}`} href="#">Registrarse</Link>
-                        </li>
+                        <LogIn />
+                        <SignUp />
                     </ul>
                 </div>
             </div>

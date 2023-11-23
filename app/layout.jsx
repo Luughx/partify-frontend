@@ -4,8 +4,9 @@ import "bootstrap/dist/css/bootstrap.css"
 import "./layout.module.css"
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import Header from '@/components/Header'
+import Header from '@/components/Header/Header'
 import bg from "@/public/main-background.jpg"
+
 config.autoAddCss = false
 
 const poppins = Poppins({
