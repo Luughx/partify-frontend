@@ -2,18 +2,36 @@
 import { useEffect } from 'react'
 import { useForm } from "react-hook-form"
 import styles from "./Header.module.css"
+import { useRouter } from 'next/navigation'
+import AxiosInstance from "@/functions/Axios"
 
-export default function LogIn() {
+const login = async (data) => {
+    const res = await AxiosInstance.post("/login", {
+        email: data.email,
+        password: data.password  
+    })
+    console.log(res.data)
+    return res.data
+}
+
+export default function LogIn({ changeValue }) {
+    const router = useRouter()
+
     useEffect(() => {
         typeof document !== undefined
             ? require("bootstrap/dist/js/bootstrap")
             : null;
     }, [])
 
-    const { register, handleSubmit, formState: { errors }, watch, reset } = useForm()
+    const { register, handleSubmit, formState: { errors }, reset } = useForm()
 
-    const onSubmit = handleSubmit((data) => {
-        console.log(data)
+    const onSubmit = handleSubmit(async (data) => {
+        const res = await login(data)
+        if (typeof window !== 'undefined') {
+            localStorage.setItem("user_data", JSON.stringify(res))
+        }
+        changeValue(true)
+        router.push(`/perfil/${res.id}`)
         reset()
     })
 
@@ -33,7 +51,7 @@ export default function LogIn() {
                         <div className="modal-body p-5 pt-0">
                             <form onSubmit={onSubmit}>
                                 <div className="form-floating mb-3">
-                                    <input type="text" className="form-control rounded-3" id="floatingInput" placeholder="name@example.com" 
+                                    <input type="text" className="form-control rounded-3" placeholder="name@example.com" 
                                     {...register("email", {
                                         required: {
                                             value: true,
@@ -44,20 +62,20 @@ export default function LogIn() {
                                             message: "El correo es inválido"
                                         }
                                     })}/>
-                                    <label htmlFor="floatingInput">Correo electrónico</label>
+                                    <label>Correo electrónico</label>
                                     {
                                         errors.email && <span className={`${styles.error_span} text-danger`}>{errors.email.message}</span>
                                     }
                                 </div>
                                 <div className="form-floating mb-3">
-                                    <input type="password" className="form-control rounded-3" id="floatingPassword" placeholder="Password" 
+                                    <input type="password" className="form-control rounded-3" placeholder="Password" 
                                     {...register("password", {
                                         required: {
                                             value: true,
                                             message: "La contraseña no puede estar vacio"
                                         }
                                     })}/>
-                                    <label htmlFor="floatingPassword">Contraseña</label>
+                                    <label>Contraseña</label>
                                     {
                                         errors.password && <span className={`${styles.error_span} text-danger`}>{errors.password.message}</span>
                                     }

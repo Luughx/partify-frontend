@@ -1,10 +1,24 @@
+"use server";
+
 import Link from "next/link"
 import styles from "./Header.module.css"
 import Image from "next/image"
-import SignUp from "./SignUp"
-import LogIn from "./LogIn"
+import { cookies } from "next/headers"
+import LoginBar from "./LoginBar";
 
-export default function Header() {
+const getData = async (data) => {
+    const BACKEND_URI = process.env.BACKEND_URI
+    const res = await fetch(`${BACKEND_URI}/getData`, {method: "get", headers: {"Content-Type": "application/json"}, credentials: "include"})
+    return res.json()
+}
+
+export default async function Header() {
+    const cookiesStore = cookies()
+
+    async function deleteToken() {
+        cookiesStore.delete("connect.sid");
+    }
+    
     return (
         <nav className={`navbar navbar-expand-lg ${styles.header_container}`}>
             <div className="container">
@@ -37,10 +51,7 @@ export default function Header() {
                             <Link className={`nav-link ${styles.link}`} href="#">Contacto</Link>
                         </li>
                     </ul>
-                    <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <LogIn />
-                        <SignUp />
-                    </ul>
+                    <LoginBar cookies={ cookiesStore.get("connect.sid") } />
                 </div>
             </div>
         </nav>

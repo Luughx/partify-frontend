@@ -39,7 +39,7 @@ export default function SignUp() {
                                 <div className="d-flex">
                                     <div className="col-md-6">
                                         <div className="form-floating mb-3 me-2">
-                                            <input type="text" className="form-control rounded-3" id="floatingInput" placeholder="Nombre" 
+                                            <input type="text" className="form-control rounded-3" placeholder="Nombre" 
                                             {...register("name", {
                                                 required: {
                                                     value: true,
@@ -54,7 +54,7 @@ export default function SignUp() {
                                                     message: "El nombre es demasiado largo"
                                                 }
                                             })}/>
-                                            <label htmlFor="floatingInput">Nombre</label>
+                                            <label>Nombre</label>
                                             {
                                                 errors.name && <span className={`${styles.error_span} text-danger`}>{errors.name.message}</span>
                                             }
@@ -62,7 +62,7 @@ export default function SignUp() {
                                     </div>
                                     <div className="col-md-6">
                                         <div className="form-floating mb-3 ms-2">
-                                            <input type="text" className="form-control rounded-3" id="floatingInput" placeholder="Apellidos" 
+                                            <input type="text" className="form-control rounded-3" placeholder="Apellidos" 
                                             {...register("lastName", {
                                                 required: {
                                                     value: true,
@@ -77,7 +77,7 @@ export default function SignUp() {
                                                     message: "El apellido es demasiado largo"
                                                 }
                                             })}/>
-                                            <label htmlFor="floatingInput">Apellidos</label>
+                                            <label>Apellidos</label>
                                             {
                                                 errors.lastName && <span className={`${styles.error_span} text-danger`}>{errors.lastName
                                                     .message}</span>
@@ -86,7 +86,7 @@ export default function SignUp() {
                                     </div>
                                 </div>
                                 <div className="form-floating mb-3">
-                                    <input type="email" className="form-control rounded-3" id="floatingInput" placeholder="Correo electrónico" 
+                                    <input type="email" className="form-control rounded-3" placeholder="Correo electrónico" 
                                     {...register("email", {
                                         required: {
                                             value: true,
@@ -97,13 +97,13 @@ export default function SignUp() {
                                             message: "El correo es inválido"
                                         }
                                     })}/>
-                                    <label htmlFor="floatingInput">Correo electrónico</label>
+                                    <label>Correo electrónico</label>
                                     {
                                         errors.email && <span className={`${styles.error_span} text-danger`}>{errors.email.message}</span>
                                     }
                                 </div>
                                 <div className="form-floating mb-3">
-                                    <input type="tel" className="form-control rounded-3" id="floatingInput" placeholder="Celular" 
+                                    <input type="tel" className="form-control rounded-3" placeholder="Celular" 
                                     {...register("phone", {
                                         required: {
                                             value: true,
@@ -122,13 +122,13 @@ export default function SignUp() {
                                             message: "El número es muy largo"
                                         }
                                     })}/>
-                                    <label htmlFor="floatingInput">Celular</label>
+                                    <label>Celular</label>
                                     {
                                         errors.phone && <span className={`${styles.error_span} text-danger`}>{errors.phone.message}</span>
                                     }
                                 </div>
                                 <div className="form-floating mb-3">
-                                    <input type="password" className="form-control rounded-3" id="floatingPassword" placeholder="Password" 
+                                    <input type="password" className="form-control rounded-3" placeholder="Password" 
                                     {...register("password", {
                                         required: {
                                             value: true,
@@ -143,13 +143,13 @@ export default function SignUp() {
                                             message: "La contraseña es demasiado largo"
                                         }
                                     })}/>
-                                    <label htmlFor="floatingPassword">Contraseña</label>
+                                    <label>Contraseña</label>
                                     {
                                         errors.password && <span className={`${styles.error_span} text-danger`}>{errors.password.message}</span>
                                     }
                                 </div>
                                 <div className="form-floating mb-3">
-                                    <input type="password" className="form-control rounded-3" id="floatingPassword" placeholder="Password" 
+                                    <input type="password" className="form-control rounded-3" placeholder="Password" 
                                     {...register("password2", {
                                         required: {
                                             value: true,
@@ -160,7 +160,7 @@ export default function SignUp() {
                                             else return "Las contraseñas no coinciden"
                                         }
                                     })}/>
-                                    <label htmlFor="floatingPassword">Repetir contraseña</label>
+                                    <label>Repetir contraseña</label>
                                     {
                                         errors.password2 && <span className={`${styles.error_span} text-danger`}>{errors.password2.message}</span>
                                     }
